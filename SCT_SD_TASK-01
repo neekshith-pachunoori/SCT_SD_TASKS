@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class TemperatureConverter {
+
+    public static double celsiusToFahrenheit(double celsius) {
+        return (celsius * 9/5) + 32;
+    }
+
+    public static double celsiusToKelvin(double celsius) {
+        return celsius + 273.15;
+    }
+
+    public static double fahrenheitToCelsius(double fahrenheit) {
+        return (fahrenheit - 32) * 5/9;
+    }
+
+    public static double fahrenheitToKelvin(double fahrenheit) {
+        return (fahrenheit - 32) * 5/9 + 273.15;
+    }
+
+    public static double kelvinToCelsius(double kelvin) {
+        return kelvin - 273.15;
+    }
+
+    public static double kelvinToFahrenheit(double kelvin) {
+        return (kelvin - 273.15) * 9/5 + 32;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Choose input scale (C/F/K): ");
+        char scale = sc.next().toUpperCase().charAt(0);
+
+        System.out.println("Enter temperature: ");
+        double temp = sc.nextDouble();
+
+        switch(scale) {
+            case 'C':
+                System.out.println("Fahrenheit: " + celsiusToFahrenheit(temp));
+                System.out.println("Kelvin: " + celsiusToKelvin(temp));
+                break;
+            case 'F':
+                System.out.println("Celsius: " + fahrenheitToCelsius(temp));
+                System.out.println("Kelvin: " + fahrenheitToKelvin(temp));
+                break;
+            case 'K':
+                System.out.println("Celsius: " + kelvinToCelsius(temp));
+                System.out.println("Fahrenheit: " + kelvinToFahrenheit(temp));
+                break;
+            default:
+                System.out.println("Invalid input scale.");
+        }
+
+    }
+}
